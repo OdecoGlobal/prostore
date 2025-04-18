@@ -2,6 +2,7 @@
 import { neonConfig } from '@neondatabase/serverless';
 import { PrismaNeon } from '@prisma/adapter-neon';
 import { PrismaClient } from '@prisma/client';
+import { Product } from '@/types';
 
 import ws from 'ws';
 
@@ -21,7 +22,7 @@ export const prisma = new PrismaClient({ adapter }).$extends({
   result: {
     product: {
       price: {
-        compute(product) {
+        compute(product: Product) {
           return product.price.toString();
         },
       },
