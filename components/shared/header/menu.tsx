@@ -1,14 +1,14 @@
-import { Button } from "@/components/ui/button";
-import ModeToogle from "./mode-toogle";
-import Link from "next/link";
-import { EllipsisVertical, ShoppingCart, UserIcon } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import ModeToogle from './mode-toogle';
+import Link from 'next/link';
+import { EllipsisVertical, ShoppingCart, UserIcon } from 'lucide-react';
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
+} from '@/components/ui/sheet';
 
 const Menu = () => {
   return (
@@ -23,7 +23,7 @@ const Menu = () => {
         </Button>
 
         <Button asChild>
-          <Link href="/user">
+          <Link href="/sign-in">
             <UserIcon /> Sign In
           </Link>
         </Button>
