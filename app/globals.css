@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -122,6 +122,9 @@
 }
 
 @layer utilities {
+  .sonner-error {
+    @apply bg-red-50 border-red-500 text-red-800;
+  }
   .wrapper {
     @apply max-w-7xl w-full p-5 md:px-10 lg:mx-auto;
   }
