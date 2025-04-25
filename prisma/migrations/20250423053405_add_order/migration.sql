@@ -5,7 +5,7 @@ CREATE TABLE "Order" (
     "shippingAddress" JSON NOT NULL,
     "paymentMethod" TEXT NOT NULL,
     "paymentResult" JSON NOT NULL,
-    "itemsPricee" DECIMAL(12,2) NOT NULL,
+    "itemsPrice" DECIMAL(12,2) NOT NULL,
     "shippingPrice" DECIMAL(12,2) NOT NULL,
     "taxPrice" DECIMAL(12,2) NOT NULL,
     "totalPrice" DECIMAL(12,2) NOT NULL,

@@ -118,7 +118,7 @@ const CartTable = ({ cart }: { cart?: Cart }) => {
               <div className="pb-3 text-xl">
                 Subtotal ({cart.items.reduce((acc, c) => acc + c.qty, 0)}):
                 <span className="font-bold">
-                  {formatCurrency(cart.itemsPricee)}
+                  {formatCurrency(cart.itemsPrice)}
                 </span>
               </div>
               <Button
