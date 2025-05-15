@@ -8,7 +8,7 @@ const currency = z
     value => /^\d+(\.\d{2})?$/.test(formatNumberWithDecimal(Number(value))),
     'price must have exactly two decimal places'
   );
-// schema for inserting products
+// Schema for inserting products
 export const insertProductSchema = z.object({
   name: z.string().min(3, 'Name must be at least 3 characters'),
   slug: z.string().min(3, 'Slug must be at least 3 characters'),
@@ -16,10 +16,15 @@ export const insertProductSchema = z.object({
   brand: z.string().min(3, 'Brand must be at least 3 characters'),
   description: z.string().min(3, 'Description must be at least 3 characters'),
   stock: z.coerce.number(),
-  images: z.array(z.string()).min(1, 'Products must have at least one image'),
+  images: z.array(z.string()).min(1, 'Product must have at least one image'),
   isFeatured: z.boolean(),
   banner: z.string().nullable(),
   price: currency,
+});
+
+// Schema for updating products
+export const updateProductSchema = insertProductSchema.extend({
+  id: z.string().min(1, 'Id is required'),
 });
 
 // Schema for signing users in
@@ -109,4 +114,16 @@ export const paymentResultSchema = z.object({
   status: z.string(),
   email_address: z.string(),
   pricePaid: z.string(),
+});
+
+// Schema for updating the user profile
+export const updateProfileSchema = z.object({
+  name: z.string().min(3, 'Name must be at least 3 characters'),
+  email: z.string().min(3, 'Email must be at least 3 characters'),
+});
+
+// Schema to update user
+export const updateUserSchema = updateProfileSchema.extend({
+  id: z.string().min(1, 'ID is required'),
+  role: z.string().min(1, 'Role is required'),
 });

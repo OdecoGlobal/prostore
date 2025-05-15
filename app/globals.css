@@ -153,3 +153,10 @@
     @apply text-xl font-bold lg:text-2xl;
   }
 }
+
+html.dark .upload-field .text-white {
+  color: #ffffff !important;
+}
+.upload-field .text-white {
+  color: #000000 !important;
+}
