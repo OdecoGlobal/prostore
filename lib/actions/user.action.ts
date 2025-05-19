@@ -16,11 +16,12 @@ import { paymentMethodSchema } from '../validator';
 import { PAGE_SIZE } from '../constants';
 import { revalidatePath } from 'next/cache';
 import { Prisma } from '@prisma/client';
+import { getMyCart } from './cart.action';
 
 // sign in user with credentials
 export async function signInWithCredentials(
   prevState: unknown,
-  formData: FormData
+  formData: FormData,
 ) {
   try {
     const user = signInFormSchema.parse({
@@ -39,6 +40,12 @@ export async function signInWithCredentials(
 
 // sign users out
 export async function signOutUser() {
+  const currentCart = await getMyCart();
+  if (currentCart?.id) {
+    await prisma.cart.delete({ where: { id: currentCart.id } });
+  } else {
+    console.warn('No cart found for deletion.');
+  }
   await signOut();
 }
 
@@ -100,7 +107,7 @@ export async function updateUserAddress(data: ShippingAddress) {
 
 // Update users payment method
 export async function updateUserPaymentMethod(
-  data: z.infer<typeof paymentMethodSchema>
+  data: z.infer<typeof paymentMethodSchema>,
 ) {
   try {
     const session = await auth();
