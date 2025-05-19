@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { formatCurrency } from '@/lib/utils';
 import { SERVER_URL } from '@/lib/constants';
 
-const StripePaymnet = ({
+const StripePayment = ({
   priceInCents,
   orderId,
   clientSecret,
@@ -101,4 +101,4 @@ const StripePaymnet = ({
     </Elements>
   );
 };
-export default StripePaymnet;
+export default StripePayment;
