@@ -28,11 +28,6 @@ const PlaceOrderPage = async () => {
   const cart = await getMyCart();
   const session = await auth();
   const userId = session?.user?.id;
-  if (Date.now() === new Date('2025-04-25').getTime()) {
-    console.log('Hello');
-  } else {
-    console.log(new Date('2025-04-25').getTime());
-  }
 
   if (!userId) throw new Error('User does not exist');
   const user = await getUserById(userId);
